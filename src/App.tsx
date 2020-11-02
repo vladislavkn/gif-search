@@ -1,7 +1,13 @@
-import React from "react";
+import React, { useState } from "react";
+import SearchInput from "./components/SearchInput";
 
 function App() {
-  return <h1 className="text-red-200">Hello world!</h1>;
+  const [searchValue, setSearchValue] = useState<string>("");
+  return (
+    <>
+      <SearchInput value={searchValue} onChange={setSearchValue} />
+    </>
+  );
 }
 
 export default App;
