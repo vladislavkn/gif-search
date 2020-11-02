@@ -3,11 +3,7 @@ import GifCard from "./GifCard";
 import GifCardSkeleton from "./GifCardSkeleton";
 
 interface ISearchResultsProps {
-  data: Array<{
-    src: string;
-    title: string;
-    id: string;
-  }>;
+  data: Array<Gif>;
   loading: boolean;
 }
 

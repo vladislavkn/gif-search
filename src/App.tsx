@@ -5,7 +5,7 @@ import useDebounce from "./hooks/useDebounce";
 
 function App() {
   const [searchValue, setSearchValue] = useState<string>("");
-  const debouncedSearchValue = useDebounce(searchValue, 500);
+  const debouncedSearchValue = useDebounce<string>(searchValue, 500);
 
   return (
     <>
