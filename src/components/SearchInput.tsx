@@ -13,7 +13,7 @@ const SearchInput: React.FC<ISearchInputProps> = ({ value, onChange }) => (
       <input
         className="flex flex-grow bg-transparent text-gray-600 outline-none"
         type="text"
-        placeholder="Поиск"
+        placeholder="Search..."
         value={value}
         onChange={(e) => onChange(e.target.value)}
       />
