@@ -15,9 +15,7 @@ const SearchResults: React.FC<ISearchResultsProps> = ({ data, loading }) => {
     if (!loading) {
       if (data.length) {
         // We have results
-        return data.map(({ src, title, id }) => (
-          <GifCard src={src} title={title} key={id} />
-        ));
+        return data.map((gifData) => <GifCard {...gifData} key={gifData.id} />);
       } else {
         // Nothing was found
         return (
