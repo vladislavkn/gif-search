@@ -6,22 +6,25 @@ import useDebounce from "./hooks/useDebounce";
 
 function App() {
   const [searchValue, setSearchValue] = useState<string>("");
-  const debouncedSearchValue = useDebounce<string>(searchValue, 500);
+  const [loading, setLoading] = useState<boolean>(false);
+  const [data, setData] = useState<Array<Gif>>([]);
+  const debouncedSearchValue = useDebounce<string>(searchValue, 1000);
 
   const uploadGifs = async () => {
-    const gifs = await fetchGifs("test");
-    console.log(gifs);
+    setLoading(true);
+    const gifs = await fetchGifs(debouncedSearchValue);
+    setData(gifs);
+    setLoading(false);
   };
 
   useEffect(() => {
     uploadGifs();
-  }, []);
+  }, [debouncedSearchValue]);
 
   return (
     <>
       <SearchInput value={searchValue} onChange={setSearchValue} />
-      <SearchResults data={[]} loading={false} />
-      {debouncedSearchValue}
+      <SearchResults data={data} loading={loading} />
     </>
   );
 }
