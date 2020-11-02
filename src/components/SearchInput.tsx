@@ -5,7 +5,7 @@ interface ISearchInputProps {
   onChange: (value: string) => void;
 }
 
-const SearchInput = ({ value, onChange }: ISearchInputProps) => (
+const SearchInput: React.FC<ISearchInputProps> = ({ value, onChange }) => (
   <div className="p-2 flex justify-center">
     <div className="bg-gray-300 rounded-lg max-w-xs py-1 px-2 flex flex-grow items-center">
       <input
