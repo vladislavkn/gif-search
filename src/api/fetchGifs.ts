@@ -3,7 +3,7 @@ const API_URL: string =
 
 const mapRecords = (records: Array<any>): Array<Gif> =>
   records.map((record) => ({
-    src: record.url,
+    src: record.images.original_still.url,
     title: record.title,
     id: record.id,
   }));
