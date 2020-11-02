@@ -8,7 +8,7 @@ const GifCard: React.FC<Gif> = ({ src, title, url }) => (
   >
     <div className="bg-gray-300 rounded-lg p-2 flex flex-col h-full">
       <div
-        className="rounded w-full xl:h-56 lg:h-48 h-32 bg-cover bg-no-repeat bg-center"
+        className="rounded bg-gray-500 w-full xl:h-56 lg:h-48 h-32 bg-cover bg-no-repeat bg-center"
         style={{ backgroundImage: `url(${src})` }}
       />
       <div className="pt-2 flex flex-col flex-grow justify-center text-lg text-center text-gray-600">
