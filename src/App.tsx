@@ -32,8 +32,20 @@ function App() {
 
   return (
     <>
+      <header className="pt-4 pb-2 px-2">
+        <h1 className="text-center text-lg text-gray-500">Search for GIFs</h1>
+      </header>
       <SearchInput value={searchValue} onChange={setSearchValue} />
       <SearchResults data={data} loading={loading} error={error} />
+      <footer className="pt-2 pb-4 px-2 text-center">
+        <span className="pt-2 px-2 text-gray-500 text-sm border-gray-300 border-t">
+          Powered by{" "}
+          <a href="https://giphy.com/" className="text-blue-500">
+            Giphy
+          </a>{" "}
+          | By Vladislav
+        </span>
+      </footer>
     </>
   );
 }
