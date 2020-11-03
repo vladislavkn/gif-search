@@ -48,7 +48,7 @@ const SearchResults: React.FC<ISearchResultsProps> = ({
       // Request hasn't loaded yet
       return mockArray.map((_, index) => <GifCardSkeleton key={index} />);
     }
-  }, [data, loading]);
+  }, [data, loading, error]);
 
   return <div className="flex flex-wrap p-2">{results}</div>;
 };
