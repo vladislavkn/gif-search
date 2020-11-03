@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import fetchGifs from "./api/fetchGifs";
 import SearchInput from "./components/SearchInput";
 import SearchResults from "./components/SearchResults";
+import { Heart } from "react-feather";
 import useDebounce from "./hooks/useDebounce";
 
 function App() {
@@ -43,7 +44,10 @@ function App() {
           <a href="https://giphy.com/" className="text-blue-500">
             Giphy
           </a>{" "}
-          | By Vladislav
+          | Created by{" "}
+          <a href="https://github.com/vladislavkn" className="text-blue-500">
+            @vladislavkn
+          </a>
         </span>
       </footer>
     </>
