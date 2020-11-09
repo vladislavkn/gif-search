@@ -1,11 +1,11 @@
 import React from "react";
 
-interface ISearchIconProps {
+type SearchIconProps = {
   size: number;
   className: string;
-}
+};
 
-const SearchIcon: React.FC<ISearchIconProps> = ({ size = 16, className }) => (
+const SearchIcon: React.FC<SearchIconProps> = ({ size = 16, className }) => (
   <svg
     xmlns="http://www.w3.org/2000/svg"
     width={size}

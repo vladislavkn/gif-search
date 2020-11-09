@@ -2,21 +2,22 @@ import React, { useMemo } from "react";
 import GifCard from "./GifCard";
 import GifCardSkeleton from "./GifCardSkeleton";
 
-interface ISearchResultsProps {
+type SearchResultsProps = {
   data: Array<Gif>;
   loading: boolean;
   error: string | null;
-}
+};
+
+type RenderResult = React.ReactElement | Array<React.ReactElement>;
 
 const mockArray = new Array<null>(6).fill(null);
-type Results = React.ReactElement | Array<React.ReactElement>;
 
-const SearchResults: React.FC<ISearchResultsProps> = ({
+const SearchResults: React.FC<SearchResultsProps> = ({
   data,
   loading,
   error,
 }) => {
-  const results = useMemo<Results>(() => {
+  const results = useMemo<RenderResult>(() => {
     // An error occured
     if (error)
       return (

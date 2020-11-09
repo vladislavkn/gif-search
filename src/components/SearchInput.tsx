@@ -1,12 +1,12 @@
 import React from "react";
 import SearchIcon from "./SearchIcon";
 
-interface ISearchInputProps {
+type SearchInputProps = {
   value: string;
   onChange: (value: string) => void;
-}
+};
 
-const SearchInput: React.FC<ISearchInputProps> = ({ value, onChange }) => (
+const SearchInput: React.FC<SearchInputProps> = ({ value, onChange }) => (
   <div className="p-2 flex justify-center">
     <div className="bg-gray-300 rounded-lg max-w-xs py-1 px-2 flex flex-grow items-center">
       <SearchIcon size={16} className="text-gray-600 mr-2" />
