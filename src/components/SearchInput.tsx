@@ -1,5 +1,5 @@
 import React from "react";
-import { Search } from "react-feather";
+import SearchIcon from "./SearchIcon";
 
 interface ISearchInputProps {
   value: string;
@@ -9,7 +9,7 @@ interface ISearchInputProps {
 const SearchInput: React.FC<ISearchInputProps> = ({ value, onChange }) => (
   <div className="p-2 flex justify-center">
     <div className="bg-gray-300 rounded-lg max-w-xs py-1 px-2 flex flex-grow items-center">
-      <Search size={16} strokeWidth={3} className="text-gray-600 mr-2" />
+      <SearchIcon size={16} className="text-gray-600 mr-2" />
       <input
         className="flex flex-grow bg-transparent text-gray-600 outline-none"
         type="text"
