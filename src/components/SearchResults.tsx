@@ -1,4 +1,5 @@
 import React, { useMemo } from "react";
+import Error from "./Error";
 import GifCard from "./GifCard";
 import GifCardSkeleton from "./GifCardSkeleton";
 
@@ -19,19 +20,7 @@ const SearchResults: React.FC<SearchResultsProps> = ({
 }) => {
   const results = useMemo<RenderResult>(() => {
     // An error occured
-    if (error)
-      return (
-        <>
-          <h2 className="text-center text-gray-500 text-lg w-full">Error:</h2>
-          <pre className="p-2 bg-blue-900 rounded text-gray-200 text-sm mx-auto my-2">
-            {error}
-          </pre>
-          <br />
-          <h2 className="text-center text-gray-500 text-lg w-full">
-            Do you know how to fix that?
-          </h2>
-        </>
-      );
+    if (error) return <Error message={error} />;
 
     if (!loading) {
       if (data.length) {
