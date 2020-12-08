@@ -9,35 +9,29 @@ type SearchResultsProps = {
   error: string | null;
 };
 
-type RenderResult = React.ReactElement | Array<React.ReactElement>;
-
-const mockArray = new Array<null>(6).fill(null);
+const mockArrayOfGifSkeletons = new Array<null>(6)
+  .fill(null)
+  .map((_, index) => <GifCardSkeleton key={index} />);
 
 const SearchResults: React.FC<SearchResultsProps> = ({
   data,
   loading,
   error,
 }) => {
-  const results = useMemo<RenderResult>(() => {
-    // An error occured
+  const results = useMemo(() => {
+    // An error occured, render the error
     if (error) return <Error message={error} />;
-
-    if (!loading) {
-      if (data.length) {
-        // We have results
-        return data.map((gifData) => <GifCard {...gifData} key={gifData.id} />);
-      } else {
-        // Nothing was found
-        return (
-          <h2 className="text-center text-gray-500 text-lg w-full">
-            Nothing was found. <br /> Come up with a normal query
-          </h2>
-        );
-      }
-    } else {
-      // Request hasn't loaded yet
-      return mockArray.map((_, index) => <GifCardSkeleton key={index} />);
-    }
+    // Still loading, render skeletons
+    if (loading) return mockArrayOfGifSkeletons;
+    // We have results, render cards
+    if (data.length)
+      return data.map((gifData) => <GifCard {...gifData} key={gifData.id} />);
+    // Nothing was found, render "nothing was found"
+    return (
+      <h2 className="text-center text-gray-500 text-lg w-full">
+        Nothing was found. <br /> Come up with a normal query
+      </h2>
+    );
   }, [data, loading, error]);
 
   return <div className="flex flex-wrap p-2">{results}</div>;
