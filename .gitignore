@@ -28,3 +28,6 @@ yarn-error.log*
 
 # auto-generated css
 /src/assets/index.css
+
+# logs
+debug.log
