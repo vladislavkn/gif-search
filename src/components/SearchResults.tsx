@@ -17,24 +17,21 @@ const SearchResults: React.FC<SearchResultsProps> = ({
   data,
   loading,
   error,
-}) => {
-  const results = useMemo(() => {
-    // An error occured, render the error
-    if (error) return <Error message={error} />;
-    // Still loading, render skeletons
-    if (loading) return mockArrayOfGifSkeletons;
-    // We have results, render cards
-    if (data.length)
-      return data.map((gifData) => <GifCard {...gifData} key={gifData.id} />);
-    // Nothing was found, render "nothing was found"
-    return (
+}) => (
+  <div className="flex flex-wrap p-2">
+    {error ? ( // An error occured
+      <Error message={error} />
+    ) : loading ? ( // Still loading
+      mockArrayOfGifSkeletons
+    ) : data.length ? ( // Results are recived
+      data.map((gifData) => <GifCard {...gifData} key={gifData.id} />)
+    ) : (
+      // Results are recived, but nothing was found
       <h2 className="text-center text-gray-500 text-lg w-full">
         Nothing was found. <br /> Come up with a normal query
       </h2>
-    );
-  }, [data, loading, error]);
-
-  return <div className="flex flex-wrap p-2">{results}</div>;
-};
+    )}
+  </div>
+);
 
 export default SearchResults;
